@@ -7,7 +7,7 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+  * <h2><center>&copy; Copyright (c) 2023 STMicroelectronics.
   * All rights reserved.</center></h2>
   *
   * This software component is licensed by ST under BSD 3-Clause license,
@@ -58,18 +58,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define Red_Pin GPIO_PIN_1
-#define Red_GPIO_Port GPIOA
-#define Yellow_Pin GPIO_PIN_2
-#define Yellow_GPIO_Port GPIOA
-#define Green_Pin GPIO_PIN_3
-#define Green_GPIO_Port GPIOA
-#define Orange_Pin GPIO_PIN_4
-#define Orange_GPIO_Port GPIOA
-#define Blue_Pin GPIO_PIN_5
-#define Blue_GPIO_Port GPIOA
-#define Pink_Pin GPIO_PIN_6
-#define Pink_GPIO_Port GPIOA
+#define LED_RED_Pin GPIO_PIN_5
+#define LED_RED_GPIO_Port GPIOA
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

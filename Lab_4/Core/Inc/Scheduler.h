@@ -1,35 +1,36 @@
 /*
- * Scheduler.h
+ * schedule.h
  *
- *  Created on: Nov 28, 2022
- *      Author: Duc Nguyen
+ *  Created on: Dec 7, 2023
+ *      Author: DELL
  */
 
 #ifndef INC_SCHEDULER_H_
 #define INC_SCHEDULER_H_
+#include "stdint.h"
 #include "main.h"
-// MUST BE ADJUSTED FOR EACH NEW PROJECT
-#define SCH_MAX_TASKS 6
-#define NO_TASK_ID 0
-
-typedef struct {
-	// Pointer to the task (must be a ’ void ( void ) ’ function )
+#define	NO_TASK_ID	     0
+typedef struct{
 	void (*pTask)(void);
-	// Delay (ticks) until the function will (next) be run
 	uint32_t Delay;
-	// Interval (ticks) between subsequent runs.
 	uint32_t Period;
-	// Incremented (by scheduler) when task is due to execute
 	uint8_t RunMe;
-	//This is a hint to solve the question below .
-	uint32_t TaskID;
-} sTask;
 
-unsigned char SCH_Add_Task(void(*pFunction)(), unsigned int DELAY, unsigned int PERIOD);
-void SCH_Dispatch_Tasks(void);
-unsigned char SCH_Delete_Task(const unsigned char TASK_INDEX);
+	uint32_t TaskID;
+}sTasks;
+#define SCH_MAX_TASKS	40
+
 void SCH_Init(void);
+
+uint32_t SCH_Add_Task(void (*pFunction)(), uint32_t DELAY, uint32_t PERIOD);
+
+
 void SCH_Update(void);
 
-extern sTask SCH_tasks_G[SCH_MAX_TASKS];
+void SCH_Dispatch_Tasks(void);
+
+uint8_t SCH_Delete_Task( uint32_t TASK_ID);
+
+void SCH_Main();
+
 #endif /* INC_SCHEDULER_H_ */
