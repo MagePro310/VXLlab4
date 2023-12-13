@@ -64,8 +64,8 @@ all: main-build
 main-build: LAB4_VXL.elf secondary-outputs
 
 # Tool invocations
-LAB4_VXL.elf: $(OBJS) $(USER_OBJS) C:\Users\Dell\Desktop\LAB4_VXL\LAB4_VXL\STM32F103C6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "LAB4_VXL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Dell\Desktop\LAB4_VXL\LAB4_VXL\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB4_VXL.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+LAB4_VXL.elf: $(OBJS) $(USER_OBJS) C:\Users\Dell\Desktop\231\VXL\Lab\Lab4\VXLlab4\Lab_4\STM32F103C6UX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "LAB4_VXL.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\Dell\Desktop\231\VXL\Lab\Lab4\VXLlab4\Lab_4\STM32F103C6UX_FLASH.ld" --specs=nosys.specs -Wl,-Map="LAB4_VXL.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
