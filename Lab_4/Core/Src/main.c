@@ -251,14 +251,6 @@ int main(void)
   SCH_Add_Task(uart_communication_fsm, 1, 10);
   while(1)
   {
-//	  HAL_GPIO_TogglePin(LED_RED_GPIO_Port, LED_RED_Pin);
-//	  HAL_Delay(1000);
-//	  if (buffer_flag == 1){
-//		  command_parser_fsm();
-//		  buffer_flag = 0;
-//	  }
-//	  uart_communication_fsm();
-//	  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, 1);
 	  SCH_Dispatch_Tasks();
 
     /* USER CODE END WHILE */

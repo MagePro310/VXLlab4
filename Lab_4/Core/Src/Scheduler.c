@@ -32,6 +32,7 @@ void SCH_Init(void){
         SCH_tasks_G[i].TaskID = -1;
     }
 }
+
 static uint32_t Get_New_Task_ID(void){
 	newTaskID++;
 	if(newTaskID == NO_TASK_ID){
@@ -63,19 +64,23 @@ uint32_t SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD){
 			SCH_tasks_G[newTaskIndex].Period = PERIOD;
 			if (SCH_tasks_G[newTaskIndex].Delay == 0) {
 				SCH_tasks_G[newTaskIndex].RunMe = 1;
-			} else {
+			}
+			else {
 				SCH_tasks_G[newTaskIndex].RunMe = 0;
 			}
 			SCH_tasks_G[newTaskIndex].TaskID = Get_New_Task_ID();
 			return SCH_tasks_G[newTaskIndex].TaskID;
-		} else {
+		}
+		else {
 			if(SCH_tasks_G[newTaskIndex].pTask == 0x0000){
 				SCH_tasks_G[newTaskIndex].pTask = pFunction;
 				SCH_tasks_G[newTaskIndex].Delay = DELAY - sumDelay;
 				SCH_tasks_G[newTaskIndex].Period = PERIOD;
 				if(SCH_tasks_G[newTaskIndex].Delay == 0){
 					SCH_tasks_G[newTaskIndex].RunMe = 1;
-				} else {
+				}
+				else {
+
 					SCH_tasks_G[newTaskIndex].RunMe = 0;
 				}
 				SCH_tasks_G[newTaskIndex].TaskID = Get_New_Task_ID();
